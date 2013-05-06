@@ -22,7 +22,7 @@ public:
     
     static Box2DDebugLayer* create(b2World *world);
 private:
-    b2World *world;
+    b2World *world; // weak ref
     GLESDebugDraw *debugDraw;
 };
 

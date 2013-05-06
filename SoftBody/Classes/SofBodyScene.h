@@ -12,6 +12,8 @@
 #include "cocos2d.h"
 #include "Box2D/Box2D.h"
 #include "Box2DDebugLayer.h"
+#include "MyNode.h"
+#include "HelloWorldLayer.h"
 
 class SofBodyScene : public cocos2d::CCScene {
 public:

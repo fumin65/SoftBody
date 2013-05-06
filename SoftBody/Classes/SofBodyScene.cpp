@@ -7,9 +7,6 @@
 //
 
 #include "SofBodyScene.h"
-#include "MyNode.h"
-
-#define PTM_RATIO 32.0f
 
 using namespace cocos2d;
 
@@ -32,9 +29,11 @@ bool SofBodyScene::init() {
         return false;
     }
     
+    
     b2Vec2 gravity;
     gravity.Set(0.0f, -10.0f);
     world = new b2World(gravity);
+    world->SetAllowSleeping(true);
     
     CCSize s = CCDirector::sharedDirector()->getWinSize();
     
@@ -43,34 +42,31 @@ bool SofBodyScene::init() {
     b2Body* groundBody = world->CreateBody(&groundBodyDef);
     b2EdgeShape groundBox;
     
-    // bottom
-    groundBox.Set(b2Vec2(0,0), b2Vec2(s.width/PTM_RATIO,0));
-    groundBody->CreateFixture(&groundBox,0);
-    
     // top
     groundBox.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO));
     groundBody->CreateFixture(&groundBox,0);
-    
+
     // left
     groundBox.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(0,0));
     groundBody->CreateFixture(&groundBox,0);
-    
+
     // right
     groundBox.Set(b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,0));
+    groundBody->CreateFixture(&groundBox,0);
+    
+    // bottom ground
+    groundBox.Set(b2Vec2(0,0), b2Vec2(s.width/PTM_RATIO,0));
     groundBody->CreateFixture(&groundBox,0);
     
     debugLayer = Box2DDebugLayer::create(world);
     debugLayer->retain();
     
-    MyNode *node = MyNode::create();
-    node->setPosition(ccp(240, 160));
-    node->createPhysicsObject(world);
     
-    CCLayer *layer = CCLayer::create();
-    layer->addChild(node);
-    
+    CCLayer *layer = HelloWorldLayer::create(world);
+
+    addChild(debugLayer);
     addChild(layer);
-    addChild(debugLayer, 9999);
+//    addChild(debugLayer, 9999);
     
     scheduleUpdate();
     
@@ -81,3 +77,4 @@ void SofBodyScene::update(float dt) {
     CCScene::update(dt);
     world->Step(dt, 8, 1);
 }
+

@@ -270,6 +270,7 @@
 		8F1243051732BD98009BC2E4 /* MyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F1243031732BD97009BC2E4 /* MyNode.cpp */; };
 		8F1243081732DD84009BC2E4 /* Box2DDebugLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F1243061732DD83009BC2E4 /* Box2DDebugLayer.cpp */; };
 		8F12430B1732DEF9009BC2E4 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F1243091732DEF8009BC2E4 /* GLES-Render.cpp */; };
+		8FD4FB101737A83B00881118 /* HelloWorldLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FD4FB0E1737A83B00881118 /* HelloWorldLayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -840,6 +841,8 @@
 		8F1243071732DD84009BC2E4 /* Box2DDebugLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Box2DDebugLayer.h; path = Classes/Box2DDebugLayer.h; sourceTree = "<group>"; };
 		8F1243091732DEF8009BC2E4 /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "GLES-Render.cpp"; path = "Classes/GLES-Render.cpp"; sourceTree = "<group>"; };
 		8F12430A1732DEF9009BC2E4 /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GLES-Render.h"; path = "Classes/GLES-Render.h"; sourceTree = "<group>"; };
+		8FD4FB0E1737A83B00881118 /* HelloWorldLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldLayer.cpp; sourceTree = "<group>"; };
+		8FD4FB0F1737A83B00881118 /* HelloWorldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2008,6 +2011,8 @@
 				8F1243041732BD98009BC2E4 /* MyNode.h */,
 				8F1243061732DD83009BC2E4 /* Box2DDebugLayer.cpp */,
 				8F1243071732DD84009BC2E4 /* Box2DDebugLayer.h */,
+				8FD4FB0E1737A83B00881118 /* HelloWorldLayer.cpp */,
+				8FD4FB0F1737A83B00881118 /* HelloWorldLayer.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2325,6 +2330,7 @@
 				8F1243051732BD98009BC2E4 /* MyNode.cpp in Sources */,
 				8F1243081732DD84009BC2E4 /* Box2DDebugLayer.cpp in Sources */,
 				8F12430B1732DEF9009BC2E4 /* GLES-Render.cpp in Sources */,
+				8FD4FB101737A83B00881118 /* HelloWorldLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

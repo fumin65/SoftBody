@@ -8,9 +8,6 @@
 
 #include "MyNode.h"
 
-#define PTM_RATIO 32.f
-#define NUM_SEGMENTS 12
-
 using namespace cocos2d;
 
 class CCBody : public CCObject {
@@ -32,8 +29,16 @@ private:
     b2Body *body;
 };
 
-MyNode::MyNode() {}
-MyNode::~MyNode() {}
+MyNode::MyNode():
+bodies(NULL),
+innerCircleBody(NULL)
+{}
+
+MyNode::~MyNode() {
+    bodies->release();
+    bodies = NULL;
+    innerCircleBody = NULL;
+}
 
 bool MyNode::init() {
     
@@ -49,7 +54,7 @@ void MyNode::createPhysicsObject(b2World *world) {
     b2Vec2 center = b2Vec2(240 / PTM_RATIO, 260 / PTM_RATIO);
     
     b2CircleShape circleShape;
-    circleShape.m_radius = 0.25f;
+    circleShape.m_radius = RADIUS;
     
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &circleShape;
@@ -59,9 +64,10 @@ void MyNode::createPhysicsObject(b2World *world) {
     
     float springiness = 4.0;
     float deltaAngle = (2.f * M_PI) / NUM_SEGMENTS;
-    float radius =50;
+    float radius = 50;
     
-    CCArray *bodies = CCArray::create();
+    bodies = CCArray::create();
+    bodies->retain();
     
     for (int i = 0; i < NUM_SEGMENTS; i++) {
         float theta = deltaAngle * i;
@@ -87,7 +93,7 @@ void MyNode::createPhysicsObject(b2World *world) {
     innerCircleBodyDef.type = b2_dynamicBody;
     innerCircleBodyDef.position = center;
     
-    b2Body *innerCircleBody = world->CreateBody(&innerCircleBodyDef);
+    innerCircleBody = world->CreateBody(&innerCircleBodyDef);
     innerCircleBody->CreateFixture(&fixtureDef);
     
     b2DistanceJointDef jointDef;
@@ -123,12 +129,30 @@ void MyNode::createPhysicsObject(b2World *world) {
 }
 
 
+void MyNode::draw() {
+    
+    triangleFanPos[0]
+    = ccp(innerCircleBody->GetPosition().x * PTM_RATIO - this->getPosition().x,
+          innerCircleBody->GetPosition().y * PTM_RATIO - this->getPosition().y);
+    
+    for (int i = 0; i < NUM_SEGMENTS; i++) {
+        b2Body *currentBody = ((CCBody *) bodies->objectAtIndex(i))->getBody();
+        
+        triangleFanPos[i + 1]
+        = ccp(currentBody->GetPosition().x * PTM_RATIO - this->getPosition().x,
+              currentBody->GetPosition().y * PTM_RATIO - this->getPosition().y);
+    }
+    
+    triangleFanPos[NUM_SEGMENTS + 1] = triangleFanPos[1];
+    
+    kmGLPushMatrix();
+    ccDrawSolidPoly(triangleFanPos, NUM_SEGMENTS + 2, ccc4f(1.0f, 0.f, 0.f, 1.0f));
+    kmGLPopMatrix();    
+    
+}
 
-
-
-
-
-
-
-
-
+void MyNode::bounce() {
+    b2Vec2 impulse = b2Vec2(0, innerCircleBody->GetMass() * 150);
+    b2Vec2 impulsePoint = innerCircleBody->GetPosition();
+    innerCircleBody->ApplyLinearImpulse(impulse, impulsePoint);
+}
