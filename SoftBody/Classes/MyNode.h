@@ -14,7 +14,7 @@
 #include "CCGL.h"
 
 #define PTM_RATIO 32.f
-#define NUM_SEGMENTS 9
+#define NUM_SEGMENTS 12
 #define RADIUS 0.25f
 
 typedef struct {
@@ -42,6 +42,19 @@ private:
     cocos2d::CCArray *bodies;
     b2Body *innerCircleBody;
     cocos2d::CCPoint triangleFanPos[NUM_SEGMENTS + 2];
+};
+
+// For part3
+class TextureMappedNode : public cocos2d::CCNode {
+private:
+    cocos2d::CCPoint vertices[4];
+    cocos2d::CCPoint textCoords[4];
+    cocos2d::CCTexture2D *texture;
+public:
+    TextureMappedNode();
+    virtual ~TextureMappedNode();
+    bool init();
+    virtual void draw(void);
 };
 
 #endif /* defined(__SoftBody__MyNode__) */

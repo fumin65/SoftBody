@@ -38,6 +38,14 @@ bool HelloWorldLayer::init() {
     
     addChild(node);
     
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    
+    TextureMappedNode *tmNode = new TextureMappedNode();
+    tmNode->setPosition(ccp(winSize.width / 2, winSize.height / 2));
+    tmNode->init();
+    addChild(tmNode);
+    tmNode->release();
+    
     return true;
 }
 

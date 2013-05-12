@@ -64,7 +64,7 @@ bool SofBodyScene::init() {
     
     CCLayer *layer = HelloWorldLayer::create(world);
 
-    addChild(debugLayer);
+//    addChild(debugLayer);
     addChild(layer);
 //    addChild(debugLayer, 9999);
     

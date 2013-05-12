@@ -271,6 +271,7 @@
 		8F1243081732DD84009BC2E4 /* Box2DDebugLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F1243061732DD83009BC2E4 /* Box2DDebugLayer.cpp */; };
 		8F12430B1732DEF9009BC2E4 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F1243091732DEF8009BC2E4 /* GLES-Render.cpp */; };
 		8FD4FB101737A83B00881118 /* HelloWorldLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FD4FB0E1737A83B00881118 /* HelloWorldLayer.cpp */; };
+		8FF3F2B1173F85810000C98E /* balance_ball_def.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FF3F2B0173F85810000C98E /* balance_ball_def.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -843,6 +844,7 @@
 		8F12430A1732DEF9009BC2E4 /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GLES-Render.h"; path = "Classes/GLES-Render.h"; sourceTree = "<group>"; };
 		8FD4FB0E1737A83B00881118 /* HelloWorldLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldLayer.cpp; path = Classes/HelloWorldLayer.cpp; sourceTree = "<group>"; };
 		8FD4FB0F1737A83B00881118 /* HelloWorldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorldLayer.h; path = Classes/HelloWorldLayer.h; sourceTree = "<group>"; };
+		8FF3F2B0173F85810000C98E /* balance_ball_def.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balance_ball_def.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -913,6 +915,7 @@
 		8F123F571732A6D2009BC2E4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8FF3F2B0173F85810000C98E /* balance_ball_def.png */,
 				8F123F581732A6D2009BC2E4 /* CloseNormal.png */,
 				8F123F5A1732A6D2009BC2E4 /* CloseSelected.png */,
 				8F123F5C1732A6D2009BC2E4 /* Default.png */,
@@ -2083,6 +2086,7 @@
 				8F12421F1732A6D9009BC2E4 /* cocos2dx-ext.mkf in Resources */,
 				8F1242211732A6D9009BC2E4 /* cocos2dx-ext_public.defines.txt in Resources */,
 				8F1242BC1732A6DA009BC2E4 /* blocks.png in Resources */,
+				8FF3F2B1173F85810000C98E /* balance_ball_def.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
